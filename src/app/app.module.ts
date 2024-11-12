@@ -10,12 +10,14 @@ import { MaterialModule } from './modules/material/material.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfirmacionEliminarComponent } from './components/confirmaciones/confirmacion-eliminar/confirmacion-eliminar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddEditPrendaComponent,
-    ListPrendaComponent
+    ListPrendaComponent,
+    ConfirmacionEliminarComponent
   ],
   imports: [
     BrowserModule,

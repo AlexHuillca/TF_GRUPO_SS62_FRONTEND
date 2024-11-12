@@ -1,1 +1,63 @@
-<p>list-prenda works!</p>
+<div>
+    <h2>Lista de Prendas</h2>
+</div>
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro" #input>
+</mat-form-field>
+<span> - </span>
+<button mat-raised-button color="primary" routerLink="/agregar_prenda">Agregar Nueva Prenda</button>
+
+<table mat-table [dataSource]="dsPrendas" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> # Id </th>
+        <td mat-cell *matCellDef="let item"> {{item.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombrePrenda">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let item"> {{item.nombrePrenda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipoPrenda">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let item"> {{item.tipoPrenda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="colorPrenda">
+        <th mat-header-cell *matHeaderCellDef> Color </th>
+        <td mat-cell *matCellDef="let item"> {{item.colorPrenda}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="talla">
+        <th mat-header-cell *matHeaderCellDef> Talla </th>
+        <td mat-cell *matCellDef="let item"> {{item.talla}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precioOriginal">
+        <th mat-header-cell *matHeaderCellDef> Precio Original </th>
+        <td mat-cell *matCellDef="let item"> {{item.precioOriginal}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="precioFinal">
+        <th mat-header-cell *matHeaderCellDef> Precio Final </th>
+        <td mat-cell *matCellDef="let item"> {{item.precioFinal}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let item">
+            <a style="cursor: pointer;" (click)="borrarPrenda(item.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+            <a style="cursor: pointer;" [routerLink]="['/editar_prenda', item.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
