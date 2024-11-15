@@ -13,7 +13,7 @@ import { ConfirmacionEliminarComponent } from '../../confirmaciones/confirmacion
 export class ListPrendaComponent {
 
   dsPrendas = new MatTableDataSource<Prenda>();
-  displayedColumns: string[] = ['id', 'nombrePrenda', 'tipoPrenda', 'colorPrenda', 'talla', 'precioOriginal', 'precioFinal', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombrePrenda', 'tipoPrenda', 'colorPrenda', 'talla', 'precioOriginal', 'precioFinal', 'nombreMarca', 'nombreCategoria', 'acciones'];
 
   constructor(private prendaService: PrendaService, private dialog: MatDialog) {}
 

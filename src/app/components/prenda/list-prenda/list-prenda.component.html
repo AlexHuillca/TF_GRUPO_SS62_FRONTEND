@@ -36,6 +36,16 @@
         <td mat-cell *matCellDef="let item"> {{item.talla}} </td>
     </ng-container>
 
+    <ng-container matColumnDef="nombreMarca">
+        <th mat-header-cell *matHeaderCellDef> Marca </th>
+        <td mat-cell *matCellDef="let item"> {{item.idMarca?.nombreMarca}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="nombreCategoria">
+        <th mat-header-cell *matHeaderCellDef> Categoría </th>
+        <td mat-cell *matCellDef="let item"> {{item.idCategoria?.nombreCategoria}} </td>
+    </ng-container>
+    
     <ng-container matColumnDef="precioOriginal">
         <th mat-header-cell *matHeaderCellDef> Precio Original </th>
         <td mat-cell *matCellDef="let item"> {{item.precioOriginal}} </td>
