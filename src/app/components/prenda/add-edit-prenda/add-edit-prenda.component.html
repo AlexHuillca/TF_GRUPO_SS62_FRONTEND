@@ -23,7 +23,11 @@
 
     <mat-form-field>
         <mat-label>Talla</mat-label>
-        <input matInput formControlName="talla" placeholder="Ingrese la talla">
+        <mat-select formControlName="talla">
+            <mat-option *ngFor="let talla of tallas" [value]="talla">
+                {{ talla }}
+            </mat-option>
+        </mat-select>
     </mat-form-field>
 
     <mat-form-field>
