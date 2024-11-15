@@ -38,5 +38,7 @@ export class rol {
   update(d: rol) {
     return this.http.put(this.url, d);
   }
+
+  
 }
 
