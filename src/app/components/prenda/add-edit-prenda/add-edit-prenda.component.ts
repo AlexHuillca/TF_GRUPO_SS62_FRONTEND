@@ -54,7 +54,7 @@ export class AddEditPrendaComponent {
 
     this.prendaId = parseInt(this.activatedRoute.snapshot.params["id"]);
     if (this.prendaId > 0 && this.prendaId != undefined) {
-      // Cuando queremos actualizar
+    
       this.prendaService.getPrendaById(this.prendaId).subscribe({
         next: (data: Prenda) => {
           this.addEditForm.patchValue(data);
@@ -108,8 +108,8 @@ export class AddEditPrendaComponent {
         next: (data) => {
           this.router.navigate(["/prendas"]);
           this.snackbar.open("La prenda fue registrada correctamente", "OK", { duration: 2000 });
-          this.cargarMarcas(); // Actualiza las marcas
-          this.cargarCategorias(); // Actualiza las categorías
+          this.cargarMarcas(); 
+          this.cargarCategorias(); 
         },
         error: (err) => {
           console.log(err);
@@ -121,8 +121,8 @@ export class AddEditPrendaComponent {
         next: (data) => {
           this.router.navigate(["/prendas"]);
           this.snackbar.open("La prenda fue actualizada correctamente", "OK", { duration: 2000 });
-          this.cargarMarcas(); // Actualiza las marcas
-          this.cargarCategorias(); // Actualiza las categorías
+          this.cargarMarcas(); 
+          this.cargarCategorias(); 
         },
         error: (err) => {
           console.log(err);
