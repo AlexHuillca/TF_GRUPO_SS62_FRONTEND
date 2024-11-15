@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environments";
+import { Subject } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root',
 })
 export class rol {
-  private url = ${base_url}/rol;
+  private url = ` ${base_url}/rol`;
   private listaCambio = new Subject<rol[]>();
 
   constructor(private http: HttpClient) {}
@@ -28,15 +30,17 @@ export class rol {
   }
 
   delete(id: Number) {
-    return this.http.delete(${this.url}/${id});
+    return this.http.delete(`${this.url}/${id}`);
   }
 
   listId(id: number) {
-    return this.http.get<rol>(${this.url}/${id});
+    return this.http.get<rol>(`${this.url}/${id}`);
   }
 
   update(d: rol) {
     return this.http.put(this.url, d);
   }
+
+  
 }
 
