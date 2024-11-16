@@ -1,5 +1,17 @@
-import { CanActivateFn } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivateFn, GuardResult, MaybeAsync, RouterStateSnapshot } from '@angular/router';
+import { UserService } from '../services/user.service';
 
-export const autorizarLogeadoGuard: CanActivateFn = (route, state) => {
-  return true;
-};
+export class AutorizarLogeadoGuard {
+
+  constructor (private userService: UserService) {}
+
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): 
+   MaybeAsync<GuardResult>
+// boolean | UrlTree | RedirectCommand | Observable<boolean | UrlTree | RedirectCommand> | Promise<boolean | UrlTree | RedirectCommand>
+  {
+    return this.userService.hayUsuarioLogeado();    
+    
+  }
+
+
+}

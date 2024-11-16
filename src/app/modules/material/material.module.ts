@@ -29,7 +29,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatCheckboxModule,
     MatCardModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    
   ],
   exports:[
     MatTableModule,

@@ -16,7 +16,7 @@ export class AutorizarConsultaGuard {
   {
     let permisos = this.userService.getAuthoritiesActual();
     if (permisos) {
-      if (permisos.indexOf("CONSULTA")>=0) {
+      if (permisos.indexOf("CLIENTE")>=0) {
         return true;
       }
     }

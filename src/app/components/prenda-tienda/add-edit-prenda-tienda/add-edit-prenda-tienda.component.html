@@ -1,0 +1,46 @@
+<div>
+    <h2>{{ prendaTiendaId > 0 ? 'Editar Prenda en Tienda' : 'Agregar Prenda a Tienda' }}</h2>
+</div>
+
+<form [formGroup]="addEditForm">
+    <mat-form-field>
+        <mat-label>Fecha de Ingreso</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaIngreso">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Stock Disponible</mat-label>
+        <input matInput type="number" formControlName="stockDisponible" placeholder="Ingrese el stock disponible">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Disponible</mat-label>
+        <mat-select formControlName="disponible">
+            <mat-option [value]="true">Sí</mat-option>
+            <mat-option [value]="false">No</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Tienda</mat-label>
+        <mat-select formControlName="idTienda">
+            <mat-option *ngFor="let tienda of tiendas" [value]="tienda.idTienda">
+                {{ tienda.nombreTienda }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Prenda</mat-label>
+        <mat-select formControlName="prendaIdPrenda">
+            <mat-option *ngFor="let prenda of prendas" [value]="prenda.id">
+                {{ prenda.nombrePrenda }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="grabarPrendaTienda()" [disabled]="addEditForm.invalid">Guardar</button>
+    <button mat-raised-button routerLink="/prendas-tienda">Cancelar</button>
+</form>

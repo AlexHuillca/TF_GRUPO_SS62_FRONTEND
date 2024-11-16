@@ -11,13 +11,18 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfirmacionEliminarComponent } from './components/confirmaciones/confirmacion-eliminar/confirmacion-eliminar.component';
+import { AddEditPrendaTiendaComponent } from './components/prenda-tienda/add-edit-prenda-tienda/add-edit-prenda-tienda.component';
+import { ListPrendaTiendaComponent } from './components/prenda-tienda/list-prenda-tienda/list-prenda-tienda.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddEditPrendaComponent,
     ListPrendaComponent,
-    ConfirmacionEliminarComponent
+    ConfirmacionEliminarComponent,
+    ListPrendaTiendaComponent,
+    AddEditPrendaTiendaComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -26,7 +31,8 @@ import { ConfirmacionEliminarComponent } from './components/confirmaciones/confi
     CommonModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule 
 
   ],
   providers: [
