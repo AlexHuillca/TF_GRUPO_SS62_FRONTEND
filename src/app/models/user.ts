@@ -4,7 +4,7 @@ export interface User {
     password: string;
     correo: string;
     direccion: string;
-    fechaRegistro: Date;
+    fechaRegistro: string;
     enabled: boolean;
     genero: string;
     edad: number;

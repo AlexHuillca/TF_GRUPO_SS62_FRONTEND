@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ConfirmacionEliminarComponent } from './components/confirmaciones/confirmacion-eliminar/confirmacion-eliminar.component';
 import { AddEditPrendaTiendaComponent } from './components/prenda-tienda/add-edit-prenda-tienda/add-edit-prenda-tienda.component';
 import { ListPrendaTiendaComponent } from './components/prenda-tienda/list-prenda-tienda/list-prenda-tienda.component';
+import { HomeComponent } from './components/home/home.component';
+import { LOGINComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { ListPrendaTiendaComponent } from './components/prenda-tienda/list-prend
     ConfirmacionEliminarComponent,
     ListPrendaTiendaComponent,
     AddEditPrendaTiendaComponent,
+    HomeComponent,
+    LOGINComponent,
    
   ],
   imports: [
@@ -32,7 +36,7 @@ import { ListPrendaTiendaComponent } from './components/prenda-tienda/list-prend
     FormsModule, 
     ReactiveFormsModule,
     HttpClientModule,
-    MaterialModule 
+    MaterialModule
 
   ],
   providers: [
