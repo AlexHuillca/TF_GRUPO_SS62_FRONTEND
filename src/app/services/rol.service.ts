@@ -8,7 +8,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class rol {
-  private url = ` ${base_url}/rol`;
+  private url = `${base_url}/rol`;
   private listaCambio = new Subject<rol[]>();
 
   constructor(private http: HttpClient) {}
@@ -40,7 +40,5 @@ export class rol {
   update(d: rol) {
     return this.http.put(this.url, d);
   }
-
-  
 }
 

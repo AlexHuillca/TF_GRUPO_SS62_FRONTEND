@@ -5,24 +5,24 @@
     font-family: Arial, sans-serif;
 }
 
-body {
+.register-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background: linear-gradient(to bottom, #99bdc8, #b4cfd5, #d1e1e4, #e3ebee);
-    position: relative; 
+    position: relative;
 }
 
 .logo {
     position: absolute;
     top: 10px; 
     right: 10px; 
-    width: 300px; /* Tamaño del logo aumentado */
+    width: 300px;
     height: auto; 
 }
 
-.login-container {
+.register-container {
     background-color: rgba(255, 255, 255, 0.15);
     padding: 40px;
     border-radius: 10px;
@@ -73,7 +73,7 @@ body {
     text-decoration: underline;
 }
 
-.login-btn {
+.register-btn {
     width: 100%;
     padding: 10px;
     background-color: #333;
@@ -84,7 +84,7 @@ body {
     cursor: pointer;
 }
 
-.login-btn:hover {
+.register-btn:hover {
     background-color: #555;
 }
 
@@ -92,4 +92,33 @@ body {
     color: #aaa;
 }
 
+.input-group .custom-select {
+    width: 100%;
+    padding: 10px 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    -webkit-appearance: none; /* Ocultar flecha nativa en algunos navegadores */
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+}
 
+.input-group .custom-select:focus {
+    border: none;
+    outline: none;
+}
+
+.input-group .custom-select::after {
+    content: '▼';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #1a1a1a;
+    font-size: 12px;
+}

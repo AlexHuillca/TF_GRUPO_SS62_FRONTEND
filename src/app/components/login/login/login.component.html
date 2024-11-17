@@ -1,37 +1,21 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="login.component.css"> <!-- Cambia esto si es necesario -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-
-<body>
-    <!-- Agregar el logo aquí -->
-    <img src="logo.png" alt="Logo" class="logo">
-    
+<div class="login-container-wrapper">
     <div class="login-container">
-        <form action="#" method="POST">
+        <!-- Logo dentro del contenedor -->
+        <img src="../../../../assets/logo.png" alt="Logo" class="logo">
+        
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" required>
+                <input #usernameInput [(ngModel)]="username" name="username" type="text" placeholder="Username" required>
             </div>
             <div class="input-group">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" required>
+                <input #passwordInput [(ngModel)]="password" name="password" type="password" placeholder="Password" required>
             </div>
             <div class="remember-register">
-                <a href="#">Register a new user</a>
+                <a href="javascript:void(0)" (click)="navigateToRegister()">Register a new user</a>
             </div>
             <button type="submit" class="login-btn">LOGIN</button>
         </form>
     </div>
-</body>
-</html>
-
+</div>

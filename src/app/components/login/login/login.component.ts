@@ -1,33 +1,57 @@
 import { Component } from '@angular/core';
+import { UserService } from '../../../services/user.service';
+import { LoginModel } from '../../../models/login';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html', // Asegúrate de que la ruta sea correcta
-  styleUrls: ['./login.component.css']    // Asegúrate de que la ruta sea correcta
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule
+  ]
 })
 export class LoginComponent {
   username: string = '';
-  email: string = '';
   password: string = '';
 
-  // Método para manejar el envío del formulario
-  onSubmit() {
-    // Aquí podrías agregar la lógica de envío o conexión con un backend
-    console.log('Formulario enviado');
-    console.log('Formulario TF');
-    console.log(`Username: ${this.username}, Email: ${this.email}, Password: ${this.password}`);
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private snackBar: MatSnackBar
+  ) {}
 
-    // Puedes implementar la lógica de autenticación aquí, por ejemplo, enviando los datos a un backend
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
-  // Puedes implementar la lógica de autenticación aquí, por ejemplo, enviando los datos a un backend
-  //ógica de autenticación aquí, por ejemplo, enviando los datos a un backend
+  
+  onSubmit() {
+    const loginData: LoginModel = {
+      nombre_Usuario: this.username,
+      password: this.password
+    };
 
+    this.userService.login(loginData).subscribe(
+      (data: any) => {
+        sessionStorage.setItem('token', data.jwtToken);
+        this.router.navigate(['cliente']);
+
+        this.snackBar.open('Login successful!', 'Cerrar', {
+          duration: 2000,
+          panelClass: ['success-snackbar']
+        });
+      },
+      (error) => {
+        this.snackBar.open('Credenciales no validas', 'Cerrar', {
+          duration: 2000,
+          panelClass: ['success-snackbar']
+        });      
+      }
+    );
+  }
 }
-
-
-
-
-
-
-
-

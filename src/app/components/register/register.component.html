@@ -1,37 +1,29 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
-    <!-- Logo agregado en la esquina superior derecha -->
+<div class="register-wrapper">
     <img src="logo.png" alt="Logo" class="logo">
-
     <div class="register-container">
-        <form action="#" method="POST">
-            <h2>Register</h2>
-            <div class="input-group">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" placeholder="Email" required>
-            </div>
-            <div class="input-group">
-                <i class="fas fa-user-tag"></i>
-                <input type="text" value="Admin" readonly> <!-- Rol fijo como Admin -->
-            </div>
-            <div class="input-group">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="register-btn">REGISTER</button>
-        </form>
+      <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+        <h2>Register</h2>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" [(ngModel)]="registerData.Nombre_Usuario" name="username" placeholder="Username" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" [(ngModel)]="registerData.correo" name="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-user-tag"></i>
+          <select [(ngModel)]="registerData.type" name="type" class="custom-select">
+              <option value="ROLE_ADMIN">Admin</option>
+              <option value="ROLE_CLIENTE">Cliente</option>
+          </select>
+      </div>             
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" [(ngModel)]="registerData.password" name="password" placeholder="Password" required>
+        </div>
+        <button type="submit" class="register-btn">REGISTER</button>
+      </form>
     </div>
-</body>
-</html>
+  </div>
+  

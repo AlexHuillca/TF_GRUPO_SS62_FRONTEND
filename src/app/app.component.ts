@@ -1,13 +1,31 @@
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
-})
+  styleUrls: ['./app.component.css'],
+  providers: [UserService], 
+  imports: [
+    RouterModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatMenuModule,
+    HttpClientModule,
+    FormsModule,
+    // otros módulos que necesites
+  ],
+  standalone: true
+})  
 export class AppComponent {
-  title = 'TF_GRUPO_SS62_FRONTED';
-}
+  constructor(){}
+  }
