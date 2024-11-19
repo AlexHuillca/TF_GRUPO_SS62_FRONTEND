@@ -21,6 +21,9 @@ import { AddEditUserComponent } from './components/user/add-edit-user/add-edit-u
 import { TiendadistribuidoraComponent } from './components/tiendadistribuidora/tiendadistribuidora.component';
 import { ListTiendadistribuidoraComponent } from './components/tiendadistribuidora/list-tiendadistribuidora/list-tiendadistribuidora.component';
 import { AddEditTiendadistribuidoraComponent } from './components/tiendadistribuidora/add-edit-tiendadistribuidora/add-edit-tiendadistribuidora.component';
+import { AddEditTiendradistribuidoraComponent } from './components/tiendadistribuidora/add-edit-tiendradistribuidora/add-edit-tiendradistribuidora.component';
+import { ListEditTiendradistribuidoraComponent } from './components/tiendadistribuidora/list-edit-tiendradistribuidora/list-edit-tiendradistribuidora.component';
+import { ListEditUserComponent } from './components/user/list-edit-user/list-edit-user.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { AddEditTiendadistribuidoraComponent } from './components/tiendadistribu
     TiendadistribuidoraComponent,
     ListTiendadistribuidoraComponent,
     AddEditTiendadistribuidoraComponent,
+    AddEditTiendradistribuidoraComponent,
+    ListEditTiendradistribuidoraComponent,
+    ListEditUserComponent,
     
    
   ],
