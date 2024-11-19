@@ -1,0 +1,18 @@
+<h2>{{ isEditMode ? 'Editar Tienda Distribuidora' : 'Agregar Tienda Distribuidora' }}</h2>
+
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Nombre de la Tienda</mat-label>
+    <input matInput formControlName="nombreTienda" placeholder="Ingrese el nombre de la tienda">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>ID de Prenda</mat-label>
+    <input matInput formControlName="prendaIdPrenda" placeholder="Ingrese el ID de la prenda">
+  </mat-form-field>
+
+  <div class="actions">
+    <button mat-button color="primary" (click)="save()">Guardar</button>
+    <button mat-button (click)="cancel()">Cancelar</button>
+  </div>
+</form>
