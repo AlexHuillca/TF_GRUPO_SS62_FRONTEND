@@ -1,0 +1,28 @@
+<div class="container">
+    <mat-toolbar>
+      <span>Lista de Tiendas Distribuidoras</span>
+      <button mat-button color="primary" (click)="agregarEditarTienda()">Agregar Tienda</button>
+    </mat-toolbar>
+  
+    <table mat-table [dataSource]="dsTiendas">
+      <ng-container matColumnDef="idTienda">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let tienda">{{ tienda.idTienda }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nombreTienda">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let tienda">{{ tienda.nombreTienda }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="prendaIdPrenda">
+        <th mat-header-cell *matHeaderCellDef>ID Prenda</th>
+        <td mat-cell *matCellDef="let tienda">{{ tienda.prendaIdPrenda }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let tienda">
+          <button mat-button color="accent" (click)="agregarEditarTienda(tienda)">Editar</button>
+          <button mat-button color="warn" (click)="borrarTienda(tienda.idTienda)">Eliminar
+  
