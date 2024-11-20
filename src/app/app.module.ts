@@ -15,15 +15,10 @@ import { AddEditPrendaTiendaComponent } from './components/prenda-tienda/add-edi
 import { ListPrendaTiendaComponent } from './components/prenda-tienda/list-prenda-tienda/list-prenda-tienda.component';
 import { HomeComponent } from './components/home/home.component';
 import { LOGINComponent } from './components/login/login.component';
-import { UserComponent } from './components/user/user.component';
 import { ListUserComponent } from './components/user/list-user/list-user.component';
 import { AddEditUserComponent } from './components/user/add-edit-user/add-edit-user.component';
-import { TiendadistribuidoraComponent } from './components/tiendadistribuidora/tiendadistribuidora.component';
-import { ListTiendadistribuidoraComponent } from './components/tiendadistribuidora/list-tiendadistribuidora/list-tiendadistribuidora.component';
-import { AddEditTiendadistribuidoraComponent } from './components/tiendadistribuidora/add-edit-tiendadistribuidora/add-edit-tiendadistribuidora.component';
 import { AddEditTiendradistribuidoraComponent } from './components/tiendadistribuidora/add-edit-tiendradistribuidora/add-edit-tiendradistribuidora.component';
-import { ListEditTiendradistribuidoraComponent } from './components/tiendadistribuidora/list-edit-tiendradistribuidora/list-edit-tiendradistribuidora.component';
-import { ListEditUserComponent } from './components/user/list-edit-user/list-edit-user.component';
+import { ListTiendadistribuidoraComponent } from './components/tiendadistribuidora/list-tiendadistribuidora/list-tiendadistribuidora.component';
 
 @NgModule({
   declarations: [
@@ -35,15 +30,10 @@ import { ListEditUserComponent } from './components/user/list-edit-user/list-edi
     AddEditPrendaTiendaComponent,
     HomeComponent,
     LOGINComponent,
-    UserComponent,
     ListUserComponent,
     AddEditUserComponent,
-    TiendadistribuidoraComponent,
-    ListTiendadistribuidoraComponent,
-    AddEditTiendadistribuidoraComponent,
     AddEditTiendradistribuidoraComponent,
-    ListEditTiendradistribuidoraComponent,
-    ListEditUserComponent,
+    ListTiendadistribuidoraComponent
     
    
   ],

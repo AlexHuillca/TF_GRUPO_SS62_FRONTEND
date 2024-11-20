@@ -1,1 +1,50 @@
-<p>add-edit-tiendradistribuidora works!</p>
+<div class="container">
+    <h2 class="title">
+      {{ tiendaDistribuidoraId > 0 ? 'Editar Tienda Distribuidora' : 'Agregar Tienda Distribuidora' }}
+    </h2>
+  
+    <form [formGroup]="addEditForm" (ngSubmit)="guardarTiendaDistribuidora()">
+      <!-- Nombre de la Tienda -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre de la Tienda</mat-label>
+        <input matInput formControlName="nombreTienda" placeholder="Ingrese el nombre de la tienda" />
+        <mat-error *ngIf="addEditForm.get('nombreTienda')?.hasError('required')">
+          El nombre es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Descuentos -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descuentos (%)</mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="descuentos"
+          placeholder="Ingrese el descuento en porcentaje"
+        />
+        <mat-error *ngIf="addEditForm.get('descuentos')?.hasError('required')">
+          El descuento es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="addEditForm.get('descuentos')?.hasError('min')">
+          El descuento no puede ser negativo.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Prendas Tiendas -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Prendas Disponibles</mat-label>
+        <textarea
+          matInput
+          formControlName="prendaTiendas"
+          placeholder="Escriba las prendas disponibles, separadas por comas"
+          rows="3"
+        ></textarea>
+        <mat-error *ngIf="addEditForm.get('prendaTiendas')?.hasError('required')">
+          Este campo es obligatorio.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Botones de Acción -->
+      <button mat-raised-button color="primary" (click)="guardarTiendaDistribuidora()" [disabled]="addEditForm.invalid">Guardar</button>
+    <button mat-raised-button routerLink="/tienda-distribuidora">Cancelar</button>
+</form>
