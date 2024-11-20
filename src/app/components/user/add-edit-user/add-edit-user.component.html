@@ -1,1 +1,60 @@
-<p>add-edit-user works!</p>
+<div class="container">
+    <h2>{{ userId > 0 ? 'Editar Usuario' : 'Nuevo Usuario' }}</h2>
+    
+    <form [formGroup]="addEditForm" (ngSubmit)="grabarUsuario()">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="nombreUsuario" required>
+        <mat-error *ngIf="addEditForm.get('nombreUsuario')?.hasError('required')">El nombre de usuario es obligatorio.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" type="password" required>
+        <mat-error *ngIf="addEditForm.get('password')?.hasError('required')">La contraseña es obligatoria.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput formControlName="correo" required>
+        <mat-error *ngIf="addEditForm.get('correo')?.hasError('required')">El correo es obligatorio.</mat-error>
+        <mat-error *ngIf="addEditForm.get('correo')?.hasError('email')">Ingrese un correo válido.</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Dirección</mat-label>
+        <input matInput formControlName="direccion" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Género</mat-label>
+        <input matInput formControlName="genero" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Edad</mat-label>
+        <input matInput formControlName="edad" required type="number">
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>DNI</mat-label>
+        <input matInput formControlName="dni" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Preferencia</mat-label>
+        <input matInput formControlName="preferencia" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Rol</mat-label>
+        <input matInput formControlName="authorities" required>
+      </mat-form-field>
+  
+      <mat-checkbox formControlName="enabled">Habilitado</mat-checkbox>
+  
+      <button mat-raised-button color="primary" (click)="grabarUsuario()" [disabled]="addEditForm.invalid">Guardar</button>
+      <button mat-raised-button routerLink="/prendas">Cancelar</button>
+  </form>
+  
+  
