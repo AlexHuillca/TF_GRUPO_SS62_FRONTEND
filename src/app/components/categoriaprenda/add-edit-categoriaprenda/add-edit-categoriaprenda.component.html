@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>{{ categoriaId ? "Editar Categoría" : "Agregar Categoría" }}</h2>
+    <form [formGroup]="addEditForm" (ngSubmit)="grabarCategoria()">
+      <mat-form-field class="full-width">
+        <mat-label>Nombre de la Categoría</mat-label>
+        <input matInput formControlName="nombreCategoria" placeholder="Ingrese el nombre">
+        <mat-error *ngIf="addEditForm.get('nombreCategoria')?.invalid">
+          Nombre es requerido y debe tener al menos 2 caracteres.
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descripcionCategoria" placeholder="Ingrese una descripción"></textarea>
+        <mat-error *ngIf="addEditForm.get('descripcionCategoria')?.invalid">
+          Descripción es requerida y no debe exceder los 100 caracteres.
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="addEditForm.invalid">
+          {{ categoriaId ? "Actualizar" : "Registrar" }}
+        </button>
+        <button mat-raised-button color="warn" routerLink="/categorias">Cancelar</button>
+      </div>
+    </form>
+  </div>
+  

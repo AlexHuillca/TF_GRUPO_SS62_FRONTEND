@@ -1,0 +1,48 @@
+<div>
+    <h2>Lista de Categorías</h2>
+</div>
+
+<mat-form-field>
+    <mat-label>Filtro</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Escriba un filtro" #input>
+</mat-form-field>
+<span> - </span>
+<button mat-raised-button color="primary" routerLink="/agregar_categoria">Agregar Nueva Categoría</button>
+
+<table mat-table [dataSource]="dsCategoria" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> # Id </th>
+        <td mat-cell *matCellDef="let item"> {{item.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nombreCategoria">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let item"> {{item.nombreCategoria}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcionCategoria">
+        <th mat-header-cell *matHeaderCellDef> Descripción </th>
+        <td mat-cell *matCellDef="let item"> {{item.descripcionCategoria}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prendas">
+        <th mat-header-cell *matHeaderCellDef> Prendas Asociadas </th>
+        <td mat-cell *matCellDef="let item"> {{item.prendas.length}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef> Opciones </th>
+        <td mat-cell *matCellDef="let item">
+            <a style="cursor: pointer;" (click)="borrarCategoria(item.id)">
+                <mat-icon>delete</mat-icon>
+            </a>
+            <a style="cursor: pointer;" [routerLink]="['/editar_categoria', item.id]">
+                <mat-icon>edit</mat-icon>
+            </a>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
